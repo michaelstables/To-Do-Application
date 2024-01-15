@@ -1,0 +1,27 @@
+# Node modules
+/backend/node_modules
+/frontend/node_modules
+
+# Environment variables
+/backend/.env
+/frontend/.env.local
+
+# Build outputs
+/backend/build
+/frontend/dist
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode
+.idea
+
+# Temporary files
+tmp

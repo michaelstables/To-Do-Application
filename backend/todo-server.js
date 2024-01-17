@@ -14,7 +14,7 @@ app.use(express.json());
 // Enable CORS for all routes
 app.use(cors());
 
-// MongoDB URI from .env file
+// MongoDB URI from config.js file
 const mongoURI = process.env.MONGO_URI;
 
 // Connect to MongoDB

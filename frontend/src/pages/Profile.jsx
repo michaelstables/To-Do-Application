@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, useTheme } from '@mui/material';
+import {API_URL} from "../utils/config.js";
 
 function Profile() {
     const [oldPassword, setOldPassword] = useState('');
@@ -15,7 +16,7 @@ function Profile() {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/users/updatepassword', {
+            const response = await fetch(`${API_URL}/api/users/updatepassword`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

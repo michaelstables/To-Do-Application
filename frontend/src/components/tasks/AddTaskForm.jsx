@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, useTheme } from '@mui/material';
+import {API_URL} from "../../utils/config.js";
 
 function AddTaskForm({ setTasks }) {
     const [title, setTitle] = useState('');
@@ -9,7 +10,7 @@ function AddTaskForm({ setTasks }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/api/tasks', {
+            const response = await fetch(`${API_URL}/api/tasks`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

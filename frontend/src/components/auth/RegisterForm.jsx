@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Typography, Box, useTheme } from '@mui/material';
+import { API_URL } from "../../utils/config.js";
 
 function RegisterForm() {
     const [username, setUsername] = useState('');
@@ -10,10 +11,11 @@ function RegisterForm() {
     const navigate = useNavigate();
     const theme = useTheme(); // Use the theme
 
+
     const registerUser = async (userData) => {
         setIsLoading(true);
         try {
-            const response = await fetch('http://localhost:3000/api/users/register', {
+            const response = await fetch(`${API_URL}/api/users/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -3,6 +3,7 @@ import Task from './Task';
 import AddTaskForm from './AddTaskForm';
 import EditTaskForm from './EditTaskForm';
 import { Button, Box, Typography, useTheme } from '@mui/material';
+import {API_URL} from "../../utils/config.js";
 
 function TaskList() {
     const [tasks, setTasks] = useState([]);
@@ -13,7 +14,7 @@ function TaskList() {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/tasks', {
+                const response = await fetch(`${API_URL}/api/tasks`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -33,7 +34,7 @@ function TaskList() {
     const handleDeleteTask = async (taskId) => {
         if (window.confirm('Are you sure you want to delete this task?')) {
             try {
-                const response = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+                const response = await fetch(`${API_URL}/api/tasks/${taskId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -57,7 +58,7 @@ function TaskList() {
 
     const handleTaskUpdate = async (updatedTask) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/tasks/${updatedTask._id}`, {
+            const response = await fetch(`${API_URL}/api/tasks/${updatedTask._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
